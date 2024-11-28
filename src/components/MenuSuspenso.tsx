@@ -31,13 +31,24 @@ export default function MenuSuspenso() {
 
   // Define o título da página baseado no pathname
   const getPageTitle = () => {
-    if (pathname === "/cliente/listar") return "Lista de Clientes";
-    if (pathname === "/cliente/adicionar") return "Adicionar Clientes";
     if (pathname === "/admin") return "Área do Administrador";
     if (pathname === "/configuracoes") return "Minhas configurações";
     if (pathname === "/painel-adm") return "Painel Administrativo";
     if (pathname === "/areas-entrega") return "Áreas de Entrega";
     if (pathname === "/cadastro") return "Cadastrar Colaborador";
+
+    // rotinas
+    if (pathname === "/rotinas/rotinas-vencidas/listar")
+      return "Rotinas Vencidas";
+    if (pathname === "/rotinas/rotinas-a-vencer/listar")
+      return "Rotinas a vencer";
+    if (pathname === "/rotinas/rotinas-realizadas/listar")
+      return "Rotinas Realizadas";
+
+    //servicos
+    if (pathname === "/servicos/servicos-realizadas/listar")
+      return "Rotinas Realizadas";
+
     return "Painel";
   };
 

@@ -35,17 +35,17 @@ interface SidebarProps {
 const rotinas = [
   {
     title: "Rotinas a vencer",
-    url: "/",
+    url: "/rotinas/rotinas-a-vencer/listar",
     icon: ClipboardList,
   },
   {
     title: "Rotinas vencidas",
-    url: "/",
+    url: "/rotinas/rotinas-vencidas/listar",
     icon: ClipboardX,
   },
   {
     title: "Rotinas realizadas",
-    url: "/",
+    url: "/rotinas/rotinas-realizadas/listar",
     icon: ClipboardCheck,
   },
 ];
@@ -61,6 +61,9 @@ const servicos = [
     url: "/",
     icon: FileSymlink,
   },
+];
+
+const equipe = [
   {
     title: "Gerenciar Equipe",
     url: "/",
@@ -77,7 +80,6 @@ const servicos = [
     icon: UserRoundPlus,
   },
 ];
-
 // Menu items exclusivos para administradores
 const adminItems = [
   {
@@ -136,6 +138,27 @@ export function AppSidebar({ userRole }: SidebarProps) {
             <SidebarGroupContent>
               <SidebarMenu>
                 {servicos.map((item) => (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton asChild>
+                      <Link href={item.url}>
+                        <item.icon />
+                        <span>{item.title}</span>
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        )}
+
+        {/* Menu Items for Moderators and Admins */}
+        {(userRole === "MODERATOR" || userRole === "ADMIN") && (
+          <SidebarGroup>
+            <SidebarGroupLabel>Equipe</SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                {equipe.map((item) => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild>
                       <Link href={item.url}>

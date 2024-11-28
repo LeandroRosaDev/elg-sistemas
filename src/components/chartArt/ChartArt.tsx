@@ -3,6 +3,13 @@
 import { Bar, BarChart } from "recharts";
 
 import { ChartConfig, ChartContainer } from "@/components/ui/chart";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "../ui/card";
 
 const chartData = [
   { month: "January", desktop: 186, mobile: 80 },
@@ -26,14 +33,21 @@ const chartConfig = {
 
 export function Component() {
   return (
-    <ChartContainer
-      config={chartConfig}
-      className="min-h-[200px] w-full h-[800px] border"
-    >
-      <BarChart accessibilityLayer data={chartData}>
-        <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
-        <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
-      </BarChart>
-    </ChartContainer>
+    <Card className="col-span-2 border ">
+      <CardHeader>
+        <CardTitle className="text-xl text-gray-700">
+          Histórico de rotinas realizadas
+        </CardTitle>
+        <CardDescription>Rotinas realizadas por período</CardDescription>
+      </CardHeader>
+      <CardContent className="flex items-center justify-center">
+        <ChartContainer config={chartConfig} className="w-4/5">
+          <BarChart accessibilityLayer data={chartData}>
+            <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
+            <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
+          </BarChart>
+        </ChartContainer>
+      </CardContent>
+    </Card>
   );
 }
