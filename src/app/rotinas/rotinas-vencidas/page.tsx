@@ -17,7 +17,7 @@ import { Input } from "@/components/ui/input";
 
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
-import { LucidePrinter } from "lucide-react";
+import { LucidePrinter, Save } from "lucide-react";
 import React from "react";
 
 function rotinasRealizadasPage() {
@@ -125,8 +125,8 @@ function rotinasRealizadasPage() {
           </div>
           <div className="flex gap-2 flex-wrap">
             <Button variant="outline">
-              <LucidePrinter size={16} className="mr-1" />
-              Imprimir Rotina
+              <Save size={16} className="mr-1" />
+              Salvar Rotina
             </Button>
             <Button variant="outline">
               <LucidePrinter size={16} className="mr-1" />

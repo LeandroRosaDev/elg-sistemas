@@ -45,9 +45,18 @@ export default function MenuSuspenso() {
     if (pathname === "/rotinas/rotinas-realizadas/listar")
       return "Rotinas Realizadas";
 
+    // equipe
+    if (pathname === "/equipe/cadastrar-colaborador")
+      return "Cadastrar colaborador";
+    if (pathname === "/equipe/cadastrar-equipe") return "Cadastrar Equipe";
+    if (pathname === "/equipe/gerenciar-colaborador")
+      return "Gerenciar Colaboradores";
+
     //servicos
     if (pathname === "/servicos/servicos-realizadas/listar")
       return "Rotinas Realizadas";
+    if (pathname === "/servicos/cadastrar-os") return "Cadastrar OS";
+    if (pathname === "/servicos/cadastrar-rotina") return "Cadastrar Rotinas";
 
     return "Painel";
   };

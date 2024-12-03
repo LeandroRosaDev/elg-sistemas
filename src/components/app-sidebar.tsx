@@ -53,12 +53,12 @@ const rotinas = [
 const servicos = [
   {
     title: "Cadastrar OS",
-    url: "/",
+    url: "/servicos/cadastrar-os",
     icon: FilePlus,
   },
   {
     title: "Cadastrar Rotina",
-    url: "/",
+    url: "/servicos/cadastrar-rotina",
     icon: FileSymlink,
   },
 ];
@@ -76,7 +76,7 @@ const equipe = [
   },
   {
     title: "Cadastrar Colaborador",
-    url: "/cadastro",
+    url: "/equipe/cadastrar-colaborador/",
     icon: UserRoundPlus,
   },
 ];
