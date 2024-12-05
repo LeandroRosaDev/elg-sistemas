@@ -9,12 +9,25 @@ export async function POST(request: Request) {
   const name = formData.get("name") as string;
   const password = formData.get("password") as string;
   const gender = formData.get("gender") as string;
-  // const arquivoBase64 = formData.get("arquivoBase64") as string;
+  const cpf = formData.get("cpf") as string;
+  const technicalRole = formData.get("technicalRole") as string;
+  const workArea = formData.get("workArea") as string;
+  const dateOfBirth = formData.get("dateOfBirth") as string;
+  const profileImage = formData.get("profileImage") as string;
 
   // Verificação de campos obrigatórios
-  if (!email || !name || !password || !gender) {
+  if (
+    !email ||
+    !name ||
+    !password ||
+    !gender ||
+    !cpf ||
+    !technicalRole ||
+    !workArea ||
+    !dateOfBirth
+  ) {
     return NextResponse.json(
-      { error: "Todos os campos são obrigatórios." },
+      { error: "Todos os campos obrigatórios devem ser preenchidos." },
       { status: 400 }
     );
   }
@@ -40,7 +53,6 @@ export async function POST(request: Request) {
       email,
       name,
       password: hashedPassword,
-      gender,
       role: "USER",
     },
   });
@@ -49,7 +61,12 @@ export async function POST(request: Request) {
   await prisma.userProfile.create({
     data: {
       userId: user.id,
-      // profileImage: arquivoBase64
+      cpf,
+      technicalRole,
+      workArea,
+      dateOfBirth: new Date(dateOfBirth), // Conversão para Date
+      gender,
+      profileImage, // URL enviada para Cloudflare
     },
   });
 
